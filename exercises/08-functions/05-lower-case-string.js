@@ -16,3 +16,9 @@
  */
 
 // WRITE YOUR ANSWER BELOW THIS LINE
+const lowerCaseString = (str) => {
+  if (typeof str !== "string"){
+    return undefined;
+  }
+  return str.toLowerCase();
+};

@@ -15,3 +15,6 @@ const calculateTotal = (subtotal, tax) => {
  */
 
 // WRITE YOUR ANSWER BELOW THIS LINE
+const subtotal = 50;
+const tax = 0.02;
+let total = calculateTotal(subtotal, tax);
