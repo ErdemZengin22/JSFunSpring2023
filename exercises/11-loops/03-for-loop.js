@@ -10,3 +10,7 @@ const array = ["Honda", "Ford", "Ferrari"];
  */
 
 // WRITE YOUR ANSWER BELOW THIS LINE
+let totalItemsinTheArray = array.length;
+for (let i = 0; i < totalItemsinTheArray; i++){
+console.log(array[i]);
+};
