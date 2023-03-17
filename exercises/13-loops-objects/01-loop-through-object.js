@@ -17,3 +17,11 @@ const links = {
  */
 
 // WRITE YOUR ANSWER BELOW THIS LINE
+console.log(links);
+let html = ""; //Create an variable called "html".
+for (let linkKeys in links){//Loop through all properties within the "links" object
+  console.log(linkKeys);
+  console.log(links[linkKeys]);
+html += `<a href="${links[linkKeys]}">${linkKeys}</a>`//and set "html" to a list of HTML links.
+}
+console.log(html);

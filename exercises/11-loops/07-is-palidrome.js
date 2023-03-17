@@ -12,7 +12,7 @@ let string = "racecar";
 
 // WRITE YOUR ANSWER BELOW THIS LINE
 
-/* GOOGLED SOLUTION BUT NOT USING SPLIT AND JOIN.
+/* GOOGLED SOLUTION FOR LOOP BUT NOT USING SPLIT AND JOIN.
     let reversedString = "";
     for (let i = string.length - 1;i >=0;i--){
         reversedString += string[i];
