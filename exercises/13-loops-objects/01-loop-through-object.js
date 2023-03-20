@@ -20,8 +20,8 @@ const links = {
 console.log(links);
 let html = ""; //Create an variable called "html".
 for (let linkKeys in links){//Loop through all properties within the "links" object
-  console.log(linkKeys);
-  console.log(links[linkKeys]);
+  console.log(linkKeys); //to check what linkKeys will print
+  console.log(links[linkKeys]); //to check what links[linkKeys] will print
 html += `<a href="${links[linkKeys]}">${linkKeys}</a>`//and set "html" to a list of HTML links.
 }
 console.log(html);
