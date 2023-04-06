@@ -11,5 +11,14 @@
  * Do not change the HTML unless you are instructed to do so.
  */
 (function () {
-  // Put your answers in here
+  const firstLi = document.querySelector("li");
+  const warningBackground = document.querySelectorAll(".bg-warning");
+  const targetMe = document.querySelector(".target");
+  const socialButtons = document.querySelectorAll(".socialMediaButton");
+  const greenRow = document.querySelector("#myRow .col");
+  console.log(firstLi);
+  console.log(warningBackground);
+  console.log(targetMe);
+  console.log(socialButtons);
+  console.log(greenRow);
 })();

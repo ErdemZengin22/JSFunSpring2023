@@ -22,37 +22,37 @@
         <p>
           Edit the <code class="text-dark">&lt;img&gt;</code> tag below so that
           it displays an image. (You can use the image
-          <a
+          <a id="brokenImgLink"
             href="https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif"
             target="_blank"
             >https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif</a
           >
           or any other image of your choice.)
         </p>
-        <img height="250" alt="Hard at Work" />
+        <img id="brokenImg" height="250" alt="Hard at Work" />
       </div>
 
       <div class="alert alert-warning">
         Change the link below so that when clicked on, it links to
-        <em>https://developer.mozilla.org/en-US/docs/Web/JavaScript</em>.
+        <em id="correctLink">https://developer.mozilla.org/en-US/docs/Web/JavaScript</em>.
         <div>
-          <a href="https://www.w3schools.com/js/default.asp" target="_blank"
+          <a id="linkToChange" href="https://www.w3schools.com/js/default.asp" target="_blank"
             >Read the (unofficial) JavaScript manual</a
           >
         </div>
       </div>
 
-      <div class="alert alert-success">
+      <div id="victor" class="alert alert-success">
         Change the text inside this <em>&lt;div&gt;</em> to say "I am
         victorious!"
       </div>
 
-      <div class="alert alert-info">
+      <div id="colorChange" class="alert alert-info">
         Change the background color of this <em>&lt;div&gt;</em> to another
         color using inline styles.
       </div>
 
-      <div class="alert alert-danger">
+      <div id="secColorChange" class="alert alert-danger">
         Change the text color of this <em>&lt;div&gt;</em> to another color by
         changing the class.
         <a
@@ -62,7 +62,7 @@
         >
       </div>
 
-      <div class="alert alert-warning">
+      <div id="hideMe" class="alert alert-warning">
         Hide this <em>&lt;div&gt;</em> using inline styles.
       </div>
 
@@ -79,7 +79,7 @@
           this button
         </button>
         has class <em>btn-primary</em>.
-        <div class="text-dark">
+        <div class="text-dark myText">
           <!-- if button has class "btn-primary", put text here -->
         </div>
       </div>

@@ -17,4 +17,17 @@
    * 2. Change the text to say e.g. "Loading ..." once it is clicked.
    */
   // Write your answer here
+  const alertButton = document.querySelector("#alertButton");
+  const cardButton = document.querySelector("#cardButton");
+  const showAlert = () => {
+    alert("I am showing myself");
+  };
+  const deactivate = () => {
+    cardButton.disabled = false;
+    cardButton.textContent = "Loading ..."
+    cardButton.classList.add("disabled");
+  };
+  alertButton.addEventListener("click", showAlert);
+  cardButton.addEventListener("click", deactivate);
+  
 })();
