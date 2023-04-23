@@ -10,6 +10,12 @@
    * it should display what the user is typing in the <div></div> tags below.
    */
   // Write your answer here
+  const mysteryInput = document.querySelector("#mysteryInput");
+  const mysteryPrint = document.querySelector("#mysteryPrint");
+  const handleMystery = () => {
+    mysteryPrint.innerHTML = mysteryInput.value;
+  };
+  mysteryInput.addEventListener("input", handleMystery);
   /**
    * Problem 2: Display the results of the world's most pointless search engine.
    *
@@ -23,6 +29,14 @@
    * and you must prevent the page from refreshing when the form is submitted.
    */
   // Write your answer here
+  const searchForm = document.querySelector("#searchForm");
+  const searchResult = document.querySelector("#searchResult");
+  const searchInput = document.querySelector('#searchInput');
+  const resultMessage = (event) => {
+    event.preventDefault();
+    searchResult.innerHTML = `No results for "${searchInput.value}" found`;
+  }
+  searchForm.addEventListener("submit", resultMessage);
   /**
    * Problem 3: Agree to the terms and conditions
    *
@@ -34,4 +48,24 @@
    * To start, you will need to hide some element on the page and change the input's classes.
    */
   // Write your answer here
+  const termsCheck = document.querySelector("#termCheck");
+  const continueButton = document.querySelector("#continueButton");
+  const errorMessage = document.querySelector("#errorMessage");
+  const thanksMessage = document.querySelector("#thanksMessage");
+
+  const termsHandler = (event) => {
+    event.preventDefault();
+    if (!termsCheck.checked){
+      errorMessage.classList.remove("hidden");
+      termsCheck.classList.add("is-invalid");
+      thanksMessage.classList.add("hidden");
+    }else {
+      errorMessage.classList.add("hidden");
+      termsCheck.classList.remove("is-invalid");
+      thanksMessage.classList.remove("hidden");
+    }
+  };
+
+  continueButton.addEventListener("click", termsHandler);
+
 })();

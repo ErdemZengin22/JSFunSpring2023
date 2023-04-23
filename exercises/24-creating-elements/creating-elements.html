@@ -31,8 +31,21 @@
       @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link for external files
       @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style for <style> tags
     -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.3/purify.js"></script>
+    <link rel="stylesheet" href="myCSS.css">
   </head>
   <body>
     <!-- Put your HTML here -->
+    <button id="createButton">Create Extra Button</button>
+    <div id="buttonArea">
+
+    </div>
+    <form id="customizeForm">
+      <h2>Add Your Own Text</h2>
+      <input id="customText" type="text" maxlength="12">
+      <button id="addCreate" type="button">Add & Create</button>
+    </form>
+    <button class="clearButton">Clear All</button>
   </body>
+  <script src="myJavaScript.js"></script>
 </html>
