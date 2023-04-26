@@ -2,10 +2,15 @@ body {
   font-family: "Syncopate", sans-serif;
   padding: 1rem;
   text-align: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
 }
 .container {
   max-width: 1200px;
   margin: auto;
+  position: relative;
+  z-index: 2;
 }
 h1 {
   font-family: "Amatic SC", sans-serif;
@@ -20,7 +25,28 @@ h2 {
 }
 img {
   display: inline-block;
+  overflow: hidden;
 }
 .button {
   font-weight: bold;
+}
+#image{
+  margin:0 auto;
+  background-image:url('https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg');
+  background-size:cover;
+  background-position: center center;
+  width:320;
+  height: 219px;
+  max-width: 100%;
+  max-height: calc(100vh - 350px);
+}
+.background-overlay{
+  width:100vw;
+  height:100vh;
+  position:absolute;
+  top:0;
+  left:0;
+  user-select: none;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.7);
 }
