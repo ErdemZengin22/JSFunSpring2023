@@ -41,4 +41,176 @@
    *   </td>
    * </tr>
    */
+  const productForm = document.querySelector("#productForm");
+  const productTableBody = document.querySelector("#productTableBody");
+
+  const getProducts = async () => {
+    try{
+      const response = await fetch('https://dummyjson.com/products');
+      const data = await response.json();
+      const products = data.products;
+
+      products.forEach(product => {
+      const tableRow = document.createElement('tr');
+
+      const idCell = document.createElement('td');
+      idCell.textContent = product.id;
+      tableRow.appendChild(idCell);
+
+      const titleCell = document.createElement('td');
+      titleCell.textContent = product.title;
+      tableRow.appendChild(titleCell);
+
+      const descriptionCell = document.createElement('td');
+      descriptionCell.textContent = product.description;
+      tableRow.appendChild(descriptionCell);
+
+      const priceCell = document.createElement('td');
+      priceCell.textContent = product.price;
+      tableRow.appendChild(priceCell);
+
+      const discountPercentageCell = document.createElement('td');
+      discountPercentageCell.textContent = product.discountPercentage;
+      tableRow.appendChild(discountPercentageCell);
+
+      const ratingCell = document.createElement('td');
+      ratingCell.textContent = product.rating;
+      tableRow.appendChild(ratingCell);
+
+      const stockCell = document.createElement('td');
+      stockCell.textContent = product.stock;
+      tableRow.appendChild(stockCell);
+
+      const brandCell = document.createElement('td');
+      brandCell.textContent = product.brand;
+      tableRow.appendChild(brandCell);
+
+      const categoryCell = document.createElement('td');
+      categoryCell.textContent = product.category;
+      tableRow.appendChild(categoryCell);
+
+      const actionCell = document.createElement('button');
+      actionCell.textContent = 'Delete';
+      actionCell.classList.add('btn', 'btn-danger', 'btn-sm', 'delete-product-btn');
+      tableRow.appendChild(actionCell);
+
+      actionCell.addEventListener('click', () => {
+        deleteProduct(product.id);
+        alert(`${product.title} is deleted.`);
+        tableRow.remove();
+      });
+
+      productTableBody.appendChild(tableRow);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+  const deleteProduct = async (productId) => {
+    try {
+      const response = await fetch(`https://dummyjson.com/products/${productId}`, {
+        method: 'DELETE'
+      });
+      const data = await response.json();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+productForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const titleInput = document.getElementById("title");
+  const descriptionInput = document.getElementById("description");
+  const priceInput = document.getElementById("price");
+  const discountPercentageInput = document.getElementById("discountPercentage");
+  const ratingInput = document.getElementById("rating");
+  const stockInput = document.getElementById("stock");
+  const brandInput = document.getElementById("brand");
+  const categoryInput = document.getElementById("category");
+
+  const productData = {
+    title: titleInput.value,
+    description: descriptionInput.value,
+    price: priceInput.value,
+    discountPercentage: discountPercentageInput.value,
+    rating: ratingInput.value,
+    stock: stockInput.value,
+    brand: brandInput.value,
+    category: categoryInput.value,
+  };
+
+  try {
+    const response = await fetch("https://dummyjson.com/products/add", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(productData),
+    });
+
+    const newProduct = await response.json();
+
+    const tableRow = document.createElement("tr");
+
+    const idCell = document.createElement("td");
+    idCell.textContent = newProduct.id;
+    tableRow.appendChild(idCell);
+
+    const titleCell = document.createElement("td");
+    titleCell.textContent = newProduct.title;
+    tableRow.appendChild(titleCell);
+
+    const descriptionCell = document.createElement("td");
+    descriptionCell.textContent = newProduct.description;
+    tableRow.appendChild(descriptionCell);
+
+    const priceCell = document.createElement("td");
+    priceCell.textContent = newProduct.price;
+    tableRow.appendChild(priceCell);
+
+    const discountPercentageCell = document.createElement("td");
+    discountPercentageCell.textContent = newProduct.discountPercentage;
+    tableRow.appendChild(discountPercentageCell);
+
+    const ratingCell = document.createElement("td");
+    ratingCell.textContent = newProduct.rating;
+    tableRow.appendChild(ratingCell);
+
+    const stockCell = document.createElement("td");
+    stockCell.textContent = newProduct.stock;
+    tableRow.appendChild(stockCell);
+
+    const brandCell = document.createElement("td");
+    brandCell.textContent = newProduct.brand;
+    tableRow.appendChild(brandCell);
+
+    const categoryCell = document.createElement("td");
+    categoryCell.textContent = newProduct.category;
+    tableRow.appendChild(categoryCell);
+
+    const actionCell = document.createElement("button");
+    actionCell.textContent = "Delete";
+    actionCell.classList.add(
+      "btn",
+      "btn-danger",
+      "btn-sm",
+      "delete-product-btn"
+    );
+    tableRow.appendChild(actionCell);
+
+    actionCell.addEventListener("click", () => {
+      deleteProduct(newProduct.id);
+      alert(`${newProduct.title} is deleted.`);
+      tableRow.remove();
+    });
+
+    productTableBody.insertBefore(tableRow, productTableBody.firstChild);
+
+    productForm.reset();
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+getProducts();
 })();

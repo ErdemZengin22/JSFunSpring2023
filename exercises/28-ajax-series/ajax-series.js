@@ -17,4 +17,33 @@
    *
    * You must make two AJAX request to solve this problem.
    */
+  const dropdown = document.getElementById('dropdown');
+  const img = document.getElementById('get-schwifty');
+  
+  
+  axios.get("https://rickandmortyapi.com/api/character")
+    .then(response => {
+      const characters = response.data.results;
+
+      characters.forEach(character => {
+        const option = document.createElement('option');
+        option.value = character.id;
+        option.text = character.name;
+        dropdown.appendChild(option);
+      });
+
+      dropdown.addEventListener('change', (event) => {
+        const characterId = event.target.value;
+
+        axios.get(`https://rickandmortyapi.com/api/character/${characterId}`)
+          .then(response => {
+            const character = response.data;
+
+            img.src = character.image;
+            document.getElementById('photo-caption').textContent = character.name;
+          })
+          .catch(error => console.error(error));
+      });
+    })
+    .catch(error => console.error(error));
 })();

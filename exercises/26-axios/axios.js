@@ -12,7 +12,7 @@
    *    "message": "https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg"
    * }
    */
-  const button = document.querySelector("button");
+const button = document.querySelector("button");
 const image = document.getElementById("image");
 let scale = 1;
 let increment = 0.00005;
